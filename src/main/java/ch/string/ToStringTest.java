@@ -6,7 +6,7 @@ import java.util.List;
 // 13.3 无意识的递归
 
 public class ToStringTest {
-    public String toString(){
+    public String toString() {
 //        return "ToStringTest address: " + this + "\n";  //error
 /*
         Exception in thread "main" java.lang.StackOverflowError
@@ -16,11 +16,14 @@ public class ToStringTest {
         return "ToStringTest address: " + super.toString() + "\n";
 
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         List<ToStringTest> v = new ArrayList<ToStringTest>();
-        for(int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             v.add(new ToStringTest());
         }
+
+
         System.out.println(v);
 /*      //Output:
         [ToStringTest address: main.java.ch.string.ToStringTest@1e643faf
