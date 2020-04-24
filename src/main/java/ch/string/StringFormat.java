@@ -30,6 +30,11 @@ public class StringFormat {
         Formatter f = new Formatter(System.out);
         String itemFormt="%-"+ width +"s %"+ width +"s %"+ width +"s\n";
         f.format(itemFormt,"Item","Qty","Price");
+        /**output:
+         *
+         * -----------
+         * Item                        Qty           Price
+         */
 
 
     }

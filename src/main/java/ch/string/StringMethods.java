@@ -3,24 +3,45 @@ package main.java.ch.string;
 
 /*
 * 13.4 String上的操作
+* String 方法
+* 1》length() ---字符的个数
+* 2》charAt(int dex) ---返回索引为index上的字符
+* 3》getChars(), getBytes()   ---s.getChars(0,4,charsArray,1);//将s上的索引为[0,4)的内容复制到charsArray目标数组上，从目标数组索引为1处进行复制。
+* 4》toCharArray()---生成一个char[],包含String的所有字符
+* 5》equals() , equalsIgnoreCase()  ---比较两个String内容是否相等（后者忽略大小写的差异)
+* 6》compareTo()---按词典顺序比较String内容，比较结果为负数，零，正数；注意：大小写不等价
+* 7》contains()
+*    contentEquals() 参数为与之比较的CharSequence或StringBuffer
+* 8》regionMatches(该String1的索引偏移量，另一个String2,String2的索引偏移量，要比较的长度) ---返回boolean结果，以表明所在区域是否相等
+*    regionMatches(是否忽略大小写差异,该String1的索引偏移量，另一个String2,String2的索引偏移量，要比较的长度) ---返回boolean结果，以表明所在区域是否相等
+* 9》startsWith(String s) 判断是否以此参数开始
+* 10》endsWith() 判断是否以此参数为后缀
+* 11》indexOf(String s) --- 返回s在String中的起始索引，若无，返回-1；
+*     lastIndexOf(String str) --- 从后向前搜索，返回str最后一次出现的索引
+* 12》substring(int beginIndex, int endIndex) --截取索引为[beginIndex,endIndex)的字符串
+* 13》concat(String str) --- 拼接字符串
+* 14》trim() ---去除字符串两端的空白字符
+* 15》valueOf() --可以把任意类型的数据转成字符串
+*       public static String valueOf(各个类型的参数)
+* 16》 intern() --- 返回值：一个字符串，内容与此字符串相同，但一定取自具有唯一字符串的池。
 * */
 public class StringMethods {
     public static void main(String[] args) {
 
         String s = "hello, this is Java";
-
+        String name = "nameTest";
         System.out.println("s ="+s);      //hello, this is Java
         /*
         length()----String中字符的个数
         * */
         System.out.println("s.length() :" + s.length());        //s.length() :19
         /*
-        charAt()
+        charAt(int dex)---返回索引为index上的字符
         */
         System.out.println("s.charAt() :" + s.charAt(4));       //s.charAt() :o
 
         /**
-         * getChars(),getBytes()
+         * getChars(), getBytes()
          * */
         char[] charsArray = new char[10];
         charsArray[0] = 'a';
@@ -28,6 +49,7 @@ public class StringMethods {
         System.out.println(charsArray);         //ab
         s.getChars(0,4,charsArray,1);//将s上的索引为[0,4)的内容复制到charsArray目标数组上，从目标数组索引为1处进行复制。
         System.out.println(charsArray);         //ahell
+        System.out.println("s.getBytes() : " + s.getBytes());   //s.getBytes() : [B@2ed94a8b
 
         /**
          * toCharArray()---生成一个char[],包含String的所有字符
@@ -81,7 +103,7 @@ public class StringMethods {
 
         /*
         * indexOf(String s) --- 返回s在String中的起始索引，若无，返回-1；
-        * lastIndexOf() --- 从后向前搜索
+        * lastIndexOf(String str) --- 从后向前搜索，返回str最后一次出现的索引
         * */
         String s9 = "HelloWorld";
         System.out.println(s9.indexOf("o"));        //4
