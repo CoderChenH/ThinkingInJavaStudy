@@ -1,6 +1,10 @@
 package main.java.ch.string;
 
 
+import org.junit.Test;
+
+import java.util.*;
+
 /*
 * 13.4 String上的操作
 * String 方法
@@ -113,6 +117,7 @@ public class StringMethods {
         /*
         * substring(int beginIndex, int endIndex) --截取索引为[beginIndex,endIndex)的字符串
         * */
+        System.out.println("----------substring-----------");
         System.out.println(s9.substring(1));        //elloWorld
         System.out.println(s9.substring(1,4));      //ell
 
@@ -154,8 +159,24 @@ public class StringMethods {
 
         System.out.println("-------------------");
 
-
-
-
     }
+
+    @Test
+    public void stringSubstringTest(){
+        String color = "  ";
+        String colors = color + "1234,6789,1234,";
+
+
+//        System.out.println(colors.length());
+//        System.out.println(colors.substring(0,colors.length()-1));
+//        System.out.println(colors.trim().length());
+//        System.out.println(colors.trim().substring(0,colors.trim().length()-1));
+
+        String colors2 = color + "1234,6789,1234,    ";
+
+        String colors2trim = colors2.trim();
+        int length = colors2trim.length();
+        System.out.println(colors2trim.substring(0,length-1));
+    }
+
 }
